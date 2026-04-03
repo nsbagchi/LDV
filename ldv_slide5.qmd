@@ -6,7 +6,16 @@ format:
     theme: simple
     slide-number: true
     transition: slide
-    chalkboard: true
+    chalkboard: 
+      enabled: true
+      chalk-width: 4
+      slidewidth: 3
+    chalkboard-buttons:
+      - toggleChalkboardButton
+      - clearButton
+      - colorButton
+      - eraserButton
+      - toggleNotesButton
     width: 1050
     height: 700
 ---
