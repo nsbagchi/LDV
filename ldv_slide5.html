@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ldv_slide5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ldv_slide5_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ldv_slide5_files/libs/quarto-html/popper.min.js"></script>
+<script src="ldv_slide5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ldv_slide5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ldv_slide5_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ldv_slide5_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <title>Qualitative and Limited Dependent Variable Models</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ldv_slide5_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ldv_slide5_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="ldv_slide5_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="ldv_slide5_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Qualitative and Limited Dependent Variable Models</h1>
+  <p class="subtitle">Principles of Econometrics - Chapter 16</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="slide-1-introduction" class="slide level2">
+<h2>Slide 1: Introduction</h2>
+<p><strong>Focus:</strong> Shifting from continuous dependent variables to models explaining economic choices and constrained data.</p>
+<ul>
+<li><strong>Qualitative Choices:</strong> Many decisions in microeconomics are “either-or” binary choices (e.g., attending college, buying a house).</li>
+<li><strong>Limited Dependent Variables:</strong> Some continuous variables have constrained ranges or are incompletely observable, invalidating standard OLS.</li>
+</ul>
+<aside class="notes">
+<p>This chapter explores microeconomic choice models where traditional linear regression fails. We will cover binary choice models (probit and logit), multinomial choices, ordered choices, count data models, and methods for handling censored or truncated data samples.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-2-models-with-binary-dependent-variables" class="slide level2">
+<h2>Slide 2: Models with Binary Dependent Variables</h2>
+<ul>
+<li><strong>Binary Indicator Variable:</strong> <span class="math inline">\(y_i = 1\)</span> if alternative one is chosen, <span class="math inline">\(y_i = 0\)</span> if alternative two is chosen.</li>
+<li><strong>Choice Probability:</strong> <span class="math inline">\(P(y_i = 1 | \mathbf{x_i}) = p(\mathbf{x_i})\)</span>, where <span class="math inline">\(0 \le p(\mathbf{x_i}) \le 1\)</span>.</li>
+<li><strong>Probability Function:</strong> <span class="math display">\[f(y_i | \mathbf{x_i}) = p(\mathbf{x_i})^{y_i} [1 - p(\mathbf{x_i})]^{1 - y_i}\]</span></li>
+</ul>
+<aside class="notes">
+<p>Unlike predicting a continuous quantity, modeling binary choices requires us to predict the probability that a specific choice is made. The explanatory variables (factors like income or price) influence this probability.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-3-the-linear-probability-model-lpm" class="slide level2">
+<h2>Slide 3: The Linear Probability Model (LPM)</h2>
+<p><strong>Equation:</strong> <span class="math inline">\(E(y_i | \mathbf{x_i}) = p(\mathbf{x_i}) = \beta_1 + \beta_2 x_{i2} + \dots + \beta_K x_{iK}\)</span></p>
+<ul>
+<li><strong>Interpretation:</strong> <span class="math inline">\(\beta_k\)</span> measures the constant change in probability for a one-unit change in <span class="math inline">\(x_k\)</span>.</li>
+<li><strong>Flaws:</strong>
+<ol type="1">
+<li>Probabilities can illogically fall outside the <span class="math inline">\([0, 1]\)</span> interval.</li>
+<li>The error term <span class="math inline">\(e_i\)</span> is inherently <strong>heteroskedastic</strong>.</li>
+</ol></li>
+</ul>
+<aside class="notes">
+<p>The linear probability model applies standard linear regression to binary outcomes. While easy to interpret, it suffers from severe logical inconsistencies since linear functions extend infinitely, whereas probabilities must remain bounded.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-4-lpm-application-transportation" class="slide level2">
+<h2>Slide 4: LPM Application – Transportation</h2>
+<p><strong>Context (Example 16.2):</strong> Choice between driving (<span class="math inline">\(AUTO = 1\)</span>) or public transit (<span class="math inline">\(AUTO = 0\)</span>).</p>
+<ul>
+<li><strong>Explanatory Variable (<span class="math inline">\(DTIME\)</span>):</strong> Bus travel time minus car travel time.</li>
+<li><strong>Estimates:</strong> <span class="math inline">\(P(AUTO = 1) = 0.774 - 0.0105 \times DTIME\)</span>.</li>
+<li><strong>Insight:</strong> A 10-minute increase in bus travel time increases the probability of driving by <span class="math inline">\(\approx 0.0105\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>This example illustrates the direct application of the LPM. However, if the travel time difference becomes extreme, this estimated linear model will predict probabilities of driving that are greater than one or less than zero.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-5-modeling-binary-choices" class="slide level2" style="font-size: 0.8em;">
+<h2>Slide 5: Modeling Binary Choices</h2>
+<p><strong>The Solution:</strong> To keep choice probabilities strictly within the (0, 1) interval, we use S-shaped (sigmoid) curves.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><strong>Curve Characteristics:</strong> As <span class="math inline">\(x\)</span> increases, the probability rises rapidly at first, then increases at a decreasing rate to stay below 1.</li>
+<li><strong>Non-Constant Marginal Effects:</strong> Unlike the LPM, the slope of the probability curve changes depending on the value of <span class="math inline">\(x\)</span>.</li>
+<li><strong>Logic:</strong> Ensures predicted probabilities are always logically bounded.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="image_sigmoid_curve.png"></p>
+<figcaption>Sigmoid Function</figcaption>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>Nonlinear models ensure that no matter how large or small the explanatory variables get, the predicted probabilities will always make sense logically.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-6-the-probit-model" class="slide level2">
+<h2>Slide 6: The Probit Model</h2>
+<p><strong>Distribution:</strong> Uses the standard normal cumulative distribution function (cdf), <span class="math inline">\(\Phi(z)\)</span>.</p>
+<p><strong>Equation:</strong> <span class="math display">\[P(y_i = 1 | \mathbf{x_i}) = \Phi(\beta_1 + \beta_2 x_{i2} + \dots + \beta_K x_{iK})\]</span></p>
+<ul>
+<li><strong>Standard Normal pdf:</strong> <span class="math inline">\(\phi(z) = \frac{1}{\sqrt{2\pi}} e^{-0.5z^2}\)</span></li>
+</ul>
+<aside class="notes">
+<p>The probit model forces the linear index into the standard normal cdf. Because it is a nonlinear function, it cannot be estimated via OLS; it requires Maximum Likelihood Estimation (MLE).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-7-probit-marginal-effects" class="slide level2">
+<h2>Slide 7: Probit – Marginal Effects</h2>
+<p><strong>Marginal Effect (Continuous):</strong> <span class="math display">\[\frac{\partial p(\mathbf{x_i})}{\partial x_{ik}} = \phi(\beta_1 + \dots + \beta_K x_{iK}) \beta_k\]</span></p>
+<ul>
+<li><strong>Sign:</strong> Determined strictly by the sign of <span class="math inline">\(\beta_k\)</span>.</li>
+<li><strong>Magnitude:</strong> Largest when <span class="math inline">\(p \approx 0.5\)</span> (maximum uncertainty); smallest when <span class="math inline">\(p\)</span> is near <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>In probit, <span class="math inline">\(\beta\)</span> coefficients are not slopes. To find the actual effect on probability, you must multiply the parameter by the standard normal pdf evaluated at a specific data point.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-8-discrete-changes-and-ame" class="slide level2">
+<h2>Slide 8: Discrete Changes and AME</h2>
+<ul>
+<li><strong>Indicator Variables:</strong> For a dummy variable <span class="math inline">\(x_{i3}\)</span>: <span class="math display">\[\Delta p(\mathbf{x_i}) = \Phi(\beta_1 + \beta_2 x_{i2} + \beta_3) - \Phi(\beta_1 + \beta_2 x_{i2})\]</span></li>
+<li><strong>Average Marginal Effect (AME):</strong> The sample average of the marginal effect evaluated at every observation.</li>
+</ul>
+<aside class="notes">
+<p>Because marginal effects depend on the specific values of all variables, researchers report effects at sample means, for representative individuals, or the Average Marginal Effect (AME).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-9-maximum-likelihood-estimation-mle" class="slide level2">
+<h2>Slide 9: Maximum Likelihood Estimation (MLE)</h2>
+<ul>
+<li><strong>Concept:</strong> Finds <span class="math inline">\(\tilde{\beta}\)</span> that maximize the probability of observing the actual sample data.</li>
+<li><strong>Log-Likelihood:</strong> We maximize the natural log of the likelihood function (<span class="math inline">\(lnL\)</span>) for simplicity.</li>
+<li><strong>Example 16.4:</strong> Using MLE on transport data, the marginal effect of travel time is <span class="math inline">\(-0.032\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>There are no simple formulas for probit parameters like OLS. Software uses numerical methods to find the maximum of the log-likelihood function.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-10-the-logit-model" class="slide level2">
+<h2>Slide 10: The Logit Model</h2>
+<p><strong>Distribution:</strong> Uses the logistic cdf: <span class="math inline">\(\Lambda(l) = \frac{1}{1 + e^{-l}}\)</span>.</p>
+<p><strong>Probability Equation:</strong> <span class="math display">\[p(x) = \frac{\exp(\gamma_1 + \gamma_2 x)}{1 + \exp(\gamma_1 + \gamma_2 x)}\]</span></p>
+<ul>
+<li><strong>Comparison:</strong> Logit and Probit yield different <span class="math inline">\(\beta\)</span> estimates (<span class="math inline">\(\tilde{\gamma}_{Logit} \approx 1.6 \tilde{\beta}_{Probit}\)</span>), but similar predicted probabilities.</li>
+</ul>
+<aside class="notes">
+<p>Logit is popular because the logistic cdf has a closed-form mathematical expression, making certain calculations easier and generalizing well to multiple choices.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-11-hypothesis-testing" class="slide level2">
+<h2>Slide 11: Hypothesis Testing</h2>
+<ul>
+<li><strong>Wald Test:</strong> Tests joint hypotheses using an asymptotic <span class="math inline">\(\chi^2\)</span> distribution.</li>
+<li><strong>Likelihood Ratio (LR) Test:</strong> Compares <span class="math inline">\(lnL\)</span> of unrestricted vs.&nbsp;restricted models. <span class="math display">\[LR = 2(lnL_U - lnL_R) \sim \chi^2(J)\]</span></li>
+<li><strong>Example 16.7/16.8:</strong> Testing if Coke and Pepsi displays have equal but opposite effects.</li>
+</ul>
+<aside class="notes">
+<p>Because error variance is normalized in these models, standard F-tests don’t apply. We use large-sample chi-square tests like Wald and LR tests.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-12-endogenous-variables" class="slide level2">
+<h2>Slide 12: Endogenous Variables</h2>
+<ul>
+<li><strong>Continuous Endogenous:</strong> Use IV Probit or 2SLS on an LPM.</li>
+<li><strong>Binary Endogenous:</strong> Use IV/2SLS or bivariate probit.</li>
+<li><strong>Forbidden Regression:</strong> Plugging first-stage fitted values from a probit into a second-stage probit is <strong>invalid</strong>.</li>
+</ul>
+<aside class="notes">
+<p>Endogeneity requires specialized techniques. Example 16.9 uses mother’s education as an instrument for education when predicting labor force participation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-13-panel-data-models" class="slide level2">
+<h2>Slide 13: Panel Data Models</h2>
+<ul>
+<li><strong>Fixed Effects:</strong> Probit suffers from the “Incidental Parameters Problem” (<span class="math inline">\(N \to \infty\)</span> with <span class="math inline">\(T\)</span> fixed leads to inconsistency).</li>
+<li><strong>Conditional Logit:</strong> Bypasses the problem for fixed effects.</li>
+<li><strong>Random Effects Probit:</strong> Assumes unobserved heterogeneity is uncorrelated with <span class="math inline">\(x\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>Panel data techniques aren’t perfectly portable to nonlinear models. If individual differences correlate with regressors, conditional logit is preferred over fixed effects probit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-14-multinomial-logit-unordered" class="slide level2">
+<h2>Slide 14: Multinomial Logit (Unordered)</h2>
+<p><strong>Context:</strong> Multiple unordered alternatives (e.g., Choice of college type).</p>
+<p><strong>Probability Equation:</strong> <span class="math display">\[p_{ij} = \frac{\exp(\beta_{1j} + \beta_{2j}x_i)}{\sum_{m=1}^{J} \exp(\beta_{1m} + \beta_{2m}x_i)}\]</span></p>
+<ul>
+<li><strong>Identification:</strong> Parameters for a base alternative are set to zero.</li>
+</ul>
+<aside class="notes">
+<p>Attributes belong to the individual (e.g., income), and the model estimates a different set of parameter values for each choice category relative to the base.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-15-multinomial-logit-interpretation" class="slide level2">
+<h2>Slide 15: Multinomial Logit Interpretation</h2>
+<ul>
+<li><strong>Odds Ratio:</strong> <span class="math inline">\(P(y_i = j) / P(y_i = 1) = \exp(\beta_{1j} + \beta_{2j}x_i)\)</span>.</li>
+<li><strong>IIA Assumption:</strong> The ratio of probabilities between two choices is independent of other alternatives.</li>
+<li><strong>Example 16.12:</strong> Lower grades increase the probability of a 4-year college vs.&nbsp;no college.</li>
+</ul>
+<aside class="notes">
+<p>The IIA assumption is strict; it implies adding a new option doesn’t change the relative odds of existing options.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-16-conditional-logit" class="slide level2">
+<h2>Slide 16: Conditional Logit</h2>
+<p><strong>Context:</strong> Explanatory variables describe <strong>attributes of the alternatives</strong> (e.g., price of Coke vs.&nbsp;Pepsi) rather than the individual.</p>
+<p><strong>Equation:</strong> <span class="math display">\[p_{ij} = \frac{\exp(\beta_{1j} + \beta_2 PRICE_{ij})}{\sum_{m=1}^{3} \exp(\beta_{1m} + \beta_2 PRICE_{im})}\]</span></p>
+<ul>
+<li><strong>Insight:</strong> Own-price effects reduce selection probability; cross-price effects increase it.</li>
+</ul>
+<aside class="notes">
+<p>In conditional logit, the parameter for an attribute (like price) is constant across all alternatives, capturing its universal effect on utility.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-17-ordered-choice-models" class="slide level2">
+<h2>Slide 17: Ordered Choice Models</h2>
+<p><strong>Context:</strong> Choices have a natural order but gaps aren’t uniform (e.g., Opinion surveys).</p>
+<ul>
+<li><strong>Latent Variable (<span class="math inline">\(y_i^*\)</span>):</strong> <span class="math inline">\(y_i^* = \beta x_i + e_i\)</span>.</li>
+<li><strong>Thresholds (<span class="math inline">\(\mu\)</span>):</strong>
+<ul>
+<li><span class="math inline">\(y_i = 1\)</span> if <span class="math inline">\(y_i^* \le \mu_1\)</span></li>
+<li><span class="math inline">\(y_i = 2\)</span> if <span class="math inline">\(\mu_1 &lt; y_i^* \le \mu_2\)</span></li>
+<li><span class="math inline">\(y_i = 3\)</span> if <span class="math inline">\(y_i^* &gt; \mu_2\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="slide-18-ordinal-probit-example" class="slide level2">
+<h2>Slide 18: Ordinal Probit Example</h2>
+<p><strong>Probabilities:</strong> Calculated using the normal cdf <span class="math inline">\(\Phi(\cdot)\)</span>.</p>
+<ul>
+<li><strong>Example 16.14:</strong> College choice (None, 2-year, 4-year) based on grades.</li>
+<li><strong>Marginal Effects:</strong> The sign of <span class="math inline">\(\beta\)</span> is opposite the effect for the lowest category but aligns with the highest category.</li>
+</ul>
+<aside class="notes">
+<p>The marginal effect on middle categories is mathematically ambiguous and depends on specific data values.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-19-count-data-poisson-regression" class="slide level2">
+<h2>Slide 19: Count Data (Poisson Regression)</h2>
+<p><strong>Context:</strong> Dependent variable is a count (<span class="math inline">\(0, 1, 2, \dots\)</span>).</p>
+<ul>
+<li><strong>Conditional Mean:</strong> <span class="math inline">\(\lambda = \exp(\beta_1 + \beta_2 x)\)</span> (guarantees positivity).</li>
+<li><strong>Poisson Probability:</strong> <span class="math inline">\(P(Y=y|x) = e^{-\lambda}\lambda^y / y!\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>Count data cannot be negative. Poisson regression uses MLE to enforce this positive boundary.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-20-poisson-example-overdispersion" class="slide level2">
+<h2>Slide 20: Poisson Example &amp; Overdispersion</h2>
+<ul>
+<li><strong>Marginal Effect:</strong> <span class="math inline">\(\frac{\partial E(y_i|x_i)}{\partial x_i} = \lambda_i \beta_2\)</span>.</li>
+<li><strong>Example 16.15 (Doctor Visits):</strong> Age, sex, and insurance status explain visit frequency.</li>
+<li><strong>Note:</strong> If variance <span class="math inline">\(&gt;\)</span> mean, it’s called <strong>overdispersion</strong>; Negative Binomial models are then preferred.</li>
+</ul>
+</section>
+<section id="slide-21-truncated-regression" class="slide level2">
+<h2>Slide 21: Truncated Regression</h2>
+<ul>
+<li><strong>Truncated Samples:</strong> We only observe <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> if <span class="math inline">\(y_i\)</span> crosses a threshold (e.g., <span class="math inline">\(y_i &gt; 0\)</span>).</li>
+<li><strong>Failure of OLS:</strong> Produces biased and inconsistent estimates by ignoring the unobserved tail.</li>
+<li><strong>MLE Solution:</strong> Modifies the pdf to <span class="math inline">\(f(y_i) / \Phi_i\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>Truncation literally cuts off a portion of the population, altering the mathematical distribution shape. MLE inflates observed probabilities to compensate.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-22-censored-samples-tobit" class="slide level2">
+<h2>Slide 22: Censored Samples &amp; Tobit</h2>
+<ul>
+<li><strong>Censored Samples:</strong> <span class="math inline">\(x_i\)</span> is observed for all, but <span class="math inline">\(y_i\)</span> hits a “limit” (often <span class="math inline">\(0\)</span>) for many.</li>
+<li><strong>Tobit Model (Type I):</strong> <span class="math inline">\(y_i = y_i^*\)</span> if <span class="math inline">\(y_i^* &gt; 0\)</span>, else <span class="math inline">\(y_i = 0\)</span>.</li>
+<li><strong>OLS Bias:</strong> Deleting zeros or running OLS on the full sample leads to severe bias.</li>
+</ul>
+<aside class="notes">
+<p>Pioneered by James Tobin, this model uses MLE to account for both the mass of zeros and the continuous positive values.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-23-tobit-interpretation" class="slide level2">
+<h2>Slide 23: Tobit Interpretation</h2>
+<p><strong>Total Marginal Effect:</strong> <span class="math inline">\(\beta_2 \Phi((\beta_1 + \beta_2 x)/\sigma)\)</span>.</p>
+<ul>
+<li><strong>McDonald-Moffitt Decomposition:</strong>
+<ol type="1">
+<li>Change in <span class="math inline">\(y\)</span> for those already above the limit.</li>
+<li>Change in the probability of crossing the limit.</li>
+</ol></li>
+<li><strong>Example 16.16:</strong> Married women’s labor supply (hours worked).</li>
+</ul>
+</section>
+<section id="slide-24-sample-selection-heckit" class="slide level2">
+<h2>Slide 24: Sample Selection (Heckit)</h2>
+<p><strong>Problem:</strong> Non-random sampling (e.g., wages only for those who work).</p>
+<ul>
+<li><strong>Selection Equation (Probit):</strong> <span class="math inline">\(z_i^* = \gamma \mathbf{w_i} + u_i\)</span>.</li>
+<li><strong>Intensity Equation:</strong> <span class="math inline">\(y_i = \beta \mathbf{x_i} + e_i\)</span> (observed only if <span class="math inline">\(z_i=1\)</span>).</li>
+<li><strong>Selectivity Bias:</strong> Occurs if <span class="math inline">\(corr(u_i, e_i) \neq 0\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>If the decision to participate is correlated with the outcome intensity, standard regression fails.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="slide-25-heckmans-two-step-estimator" class="slide level2">
+<h2>Slide 25: Heckman’s Two-Step Estimator</h2>
+<ol type="1">
+<li><strong>Step 1:</strong> Probit on Selection <span class="math inline">\(\to\)</span> Calculate <strong>Inverse Mills Ratio (IMR)</strong>: <span class="math inline">\(\lambda_i = \frac{\phi(\cdot)}{\Phi(\cdot)}\)</span>.</li>
+<li><strong>Step 2:</strong> OLS on Intensity including IMR: <span class="math display">\[y_i = \beta \mathbf{x_i} + \beta_{\lambda}\tilde{\lambda}_i + v_i\]</span></li>
+</ol>
+<ul>
+<li><strong>Example 16.17:</strong> Corrects downward bias on returns to education.</li>
+</ul>
+</section>
+<section id="slide-26-random-utility-models" class="slide level2">
+<h2>Slide 26: Random Utility Models</h2>
+<p><strong>Micro-foundations:</strong> Individuals maximize latent utility <span class="math inline">\(U_{ij}\)</span>.</p>
+<ul>
+<li><strong>Binary:</strong> <span class="math inline">\(y_i^* = U_{i1} - U_{i0}\)</span>.</li>
+<li><strong>Link:</strong>
+<ul>
+<li>Errors = Jointly Normal <span class="math inline">\(\to\)</span> <strong>Probit</strong>.</li>
+<li>Errors = Independent Extreme Value <span class="math inline">\(\to\)</span> <strong>Logit</strong>.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Choice models are rooted in utility theory. Since utility is latent, we model probabilities based on the statistical distribution of unobservable errors.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ldv_slide5_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ldv_slide5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ldv_slide5_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ldv_slide5_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"enabled":true,"chalkWidth":4,"slidewidth":3},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
