@@ -85,7 +85,7 @@ This example illustrates the direct application of the LPM. However, if the trav
 :::
 
 ::: {.column width="40%"}
-![Sigmoid Function](image_sigmoid curve.png){width="100%"}
+![Sigmoid Function](image_sigmoid_curve.png) 
 :::
 
 ::::
